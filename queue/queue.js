@@ -1,33 +1,33 @@
-export default class Stack {
+export default class Queue {   
     
     constructor() {
         this.items = [];
     }
 
-    push(value) {
+    enqueue(value){
         this.items.push(value);
     }
 
-    pop(){
-        let value = this.items.pop();
-        return value;
-    }
-
     peek(){
-        return !this.empty() ? this.items[this.items.length-1] : null;
+        return !this.empty() ? this.items[0] : null;
     }
 
-    size(){
-        return this.items.length;
+    dequeue(){
+        const value = this.items.shift();
+        return value;
     }
 
     empty(){
         return this.items.length == 0;
     }
 
+    size(){
+        return this.items.length;
+    }
+
     print(){
-        console.log('Stack:', this.items);
+        console.log('Queue:', this.items);
         console.log('Size:', this.size());
         console.log('Empty:', this.empty());
     }
-} 
+}

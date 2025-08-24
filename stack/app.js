@@ -1,7 +1,7 @@
 import Stack from "./stack.js";
+let stack = new Stack();
 
 console.group('push')
-let stack = new Stack();
 stack.push(100);
 stack.print();
 console.groupEnd();
