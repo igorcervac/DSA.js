@@ -16,6 +16,7 @@ console.groupEnd();
 doubleLinkedList.remove(1);
 doubleLinkedList.remove(2);
 doubleLinkedList.remove(3);
+doubleLinkedList.remove(4);
 
 console.group('Print:');
 doubleLinkedList.print();

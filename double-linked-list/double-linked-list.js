@@ -30,22 +30,20 @@ export default class DoubleLinkedList{
     remove(value){
         if (!this.head) return;
 
-        if (this.head.value == value){
+        if (this.head.value == value && this.tail.value == value){
+            this.head = this.tail = null;
+            return;
+        }
 
-            if (this.head == this.tail){
-                this.tail = this.head = null;
-            }else{
-                this.head = this.head.next;
-                this.head.prev = null;
-            }
-            
+        if (this.head.value == value){           
+            this.head = this.head.next;
+            this.head.prev = null;            
             return;
         }
 
         if (this.tail.value == value){            
             this.tail = this.tail.prev;
-            this.tail.next = null;
-            
+            this.tail.next = null;            
             return;
         }
 
