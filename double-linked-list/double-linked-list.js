@@ -19,7 +19,6 @@ export default class DoubleLinkedList{
         if (!this.head) {
             this.head = newNode;
             this.tail = newNode;
-
             return;
         }
 
@@ -28,43 +27,76 @@ export default class DoubleLinkedList{
         this.tail = newNode;
     }
 
-    remove(value) {
-        if (!this.head) {
-            return null;
+    remove(value){
+        if (!this.head) return;
+        
+        if (this.head.value == value){
+
+            if (this.head == this.tail){
+                this.tail = this.head = null;
+            }else{
+                this.head = this.head.next;
+                this.head.prev = null;
+            }
+            
+            return;
+        }
+
+        if (this.tail.value == value){            
+            this.tail = this.tail.prev;
+            this.tail.next = null;
+            
+            return;
         }
 
         let current = this.head;
-
-        if (current.value === value) {
-            this.head = current.next;
-
-            if (this.head) {
-                this.head.prev = null;
-            } else {
-                this.tail = null;
-            }
-
-            return current;
-        }
-
-        while (current && current.value !== value) {
+        while (current && current.value!=value){
             current = current.next;
         }
 
-        if (current) {
-            if (current.next) {
-                current.next.prev = current.prev;
-            } else {
-                this.tail = current.prev;
-            }
-
-            if (current.prev) {
-                current.prev.next = current.next;
-            }
+        if (current){
+            current.prev.next = current.next;
+            current.next.prev = current.prev;
         }
-
-        return current;
     }
+
+    // remove(value) {
+    //     if (!this.head) {
+    //         return null;
+    //     }
+
+    //     let current = this.head;
+
+    //     if (current.value === value) {
+    //         this.head = current.next;
+
+    //         if (this.head) {
+    //             this.head.prev = null;
+    //         } else {
+    //             this.tail = null;
+    //         }
+
+    //         return current;
+    //     }
+
+    //     while (current && current.value !== value) {
+    //         current = current.next;
+    //     }
+
+    //     if (current) {
+    //         if (current.next) {
+    //             current.next.prev = current.prev;
+    //         } else {
+    //             this.tail = current.prev;
+    //         }
+
+    //         if (current.prev) {
+    //             current.prev.next = current.next;
+    //         }
+    //     }
+
+    //     return current;
+    // }
 
     print(){
         let current = this.head;
