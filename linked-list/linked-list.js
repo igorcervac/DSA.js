@@ -26,6 +26,8 @@ export default class LinkedList {
     }
 
     remove(value){
+        if (!this.head) return;
+        
         let current = this.head;
         let prev = null;
 

@@ -29,7 +29,7 @@ export default class DoubleLinkedList{
 
     remove(value){
         if (!this.head) return;
-        
+
         if (this.head.value == value){
 
             if (this.head == this.tail){
@@ -58,45 +58,7 @@ export default class DoubleLinkedList{
             current.prev.next = current.next;
             current.next.prev = current.prev;
         }
-    }
-
-    // remove(value) {
-    //     if (!this.head) {
-    //         return null;
-    //     }
-
-    //     let current = this.head;
-
-    //     if (current.value === value) {
-    //         this.head = current.next;
-
-    //         if (this.head) {
-    //             this.head.prev = null;
-    //         } else {
-    //             this.tail = null;
-    //         }
-
-    //         return current;
-    //     }
-
-    //     while (current && current.value !== value) {
-    //         current = current.next;
-    //     }
-
-    //     if (current) {
-    //         if (current.next) {
-    //             current.next.prev = current.prev;
-    //         } else {
-    //             this.tail = current.prev;
-    //         }
-
-    //         if (current.prev) {
-    //             current.prev.next = current.next;
-    //         }
-    //     }
-
-    //     return current;
-    // }
+    }    
 
     print(){
         let current = this.head;
