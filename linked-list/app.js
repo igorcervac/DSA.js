@@ -5,7 +5,7 @@ let linkedList = new LinkedList();
 console.group('Append:');
 linkedList.append(1);
 linkedList.append(2);
-linkedList.print();
+linkedList.traverse();
 console.groupEnd();
 
 console.group('Remove:');

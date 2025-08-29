@@ -38,27 +38,27 @@ export default class BinaryTree {
         }
     }
 
-    traverseInOrder(node = this.root){
+    traverseInOrder(node = this.root, callback = console.log){
         if (node){
-            this.traverseInOrder(node.left);
-            console.log(node.value);
-            this.traverseInOrder(node.right);
+            this.traverseInOrder(node.left, callback);
+            callback(node.value);
+            this.traverseInOrder(node.right, callback);
         }
     }
 
-    traversePreOrder(node = this.root){
+    traversePreOrder(node = this.root, callback = console.log){
         if (node){
-            console.log(node.value);
-            this.traverseInOrder(node.left);
-            this.traverseInOrder(node.right);
+            callback(node.value);
+            this.traversePreOrder(node.left, callback);
+            this.traversePreOrder(node.right, callback);
         }
     }
 
-    traversePostOrder(node = this.root){
+    traversePostOrder(node = this.root, callback = console.log){
         if (node){
-            this.traverseInOrder(node.left);
-            this.traverseInOrder(node.right);
-            console.log(node.value);
+            this.traversePostOrder(node.left, callback);
+            this.traversePostOrder(node.right, callback);
+            callback(node.value);
         }
     }
 }

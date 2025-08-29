@@ -8,7 +8,7 @@ tree.insert(3);
 tree.insert(5);
 
 console.group('In-order:');
-tree.traverseInOrder();
+tree.traverseInOrder(tree.root, console.error);
 console.groupEnd();
 
 console.group('Pre-order:');

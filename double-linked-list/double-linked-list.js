@@ -58,18 +58,18 @@ export default class DoubleLinkedList{
         }
     }    
 
-    print(){
+    traverse(callback = console.log){
         let current = this.head;
         while(current){
-            console.log(current.value);
+            callback(current.value);
             current = current.next;
         }
     }
 
-    reversePrint(){
+    reverseTraverse(callback = console.log){
         let current = this.tail;
         while(current){
-            console.log(current.value);
+            callback(current.value);
             current = current.prev;
         }
     }

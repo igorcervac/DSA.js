@@ -46,10 +46,10 @@ export default class LinkedList {
         }
     }
 
-    print(){
+    traverse(callback = console.log){
         let current = this.head;
         while(current != null){
-            console.log(current.value);
+            callback(current.value);
             current = current.next;
         }
     }
