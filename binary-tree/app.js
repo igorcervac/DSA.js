@@ -5,10 +5,10 @@ tree.insert(9);
 tree.insert(7);
 tree.insert(11);
 tree.insert(3);
-tree.insert(5);
+tree.insert(8);
 
 console.group('In-order:');
-tree.traverseInOrder(tree.root, console.error);
+tree.traverseInOrder();
 console.groupEnd();
 
 console.group('Pre-order:');
@@ -17,5 +17,9 @@ console.groupEnd();
 
 console.group('Post-order:');
 tree.traversePostOrder();
+console.groupEnd();
+
+console.group('In-breadth:');
+tree.traverseInBreadth();
 console.groupEnd();
 

@@ -1,3 +1,5 @@
+import Queue from '../queue/queue.js'
+
 class Node {    
     constructor(value) {
         this.value = value;
@@ -59,6 +61,28 @@ export default class BinaryTree {
             this.traversePostOrder(node.left, callback);
             this.traversePostOrder(node.right, callback);
             callback(node.value);
+        }
+    }
+
+    traverseInBreadth(node = this.root, callback = console.log){
+        const queue = new Queue();
+        if (!this.root){
+            return;
+        }
+
+        queue.enqueue(node);
+
+        while (queue.size() > 0) {
+            const current = queue.dequeue();
+            callback(current.value);
+
+            if (current.left){
+                queue.enqueue(current.left);
+            }
+
+            if (current.right){
+                queue.enqueue(current.right);
+            }
         }
     }
 }
